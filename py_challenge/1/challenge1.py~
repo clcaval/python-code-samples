@@ -1,0 +1,39 @@
+from string import maketrans
+
+f = open('text.dat', 'r')
+p = f.read()
+f.close()
+y = ''
+url = 'http://www.pythonchallenge.com/pc/def/map.html'
+
+for i in p:	
+	for j in i:
+		if j not in ('.()\''):
+			if not ord(j) >= 121:
+				x = ord(j) + 2
+				y += chr(x)
+			else:
+				x = ord(j) % 121
+				y += chr(97 + x)
+	y += ' '
+
+print(y)
+
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+corrAlphabet = ''
+for i in alphabet:
+	corrAlphabet += chr(ord(i) + 2)
+
+trans = maketrans(alphabet, corrAlphabet)
+url2 = url.translate(trans) 
+print(url.translate(trans))
+print(url2.translate(trans))
+
+#challenge 3:
+print("challenge 3")
+p = 'jfeiauzroivgzbmpszazlutnwsdofdbiwqdjbzshfrblqgsbyfdajygcblwjwggtdfjetobcmdlzxajvithecgpkcfwqqbvkoietpiijanvvqjjgtctpcadzjkgucmluaidgumlcdskunujfcjfmbzkzxsasdxsqqqlaeisjefjfdaolkjakypwxjtlhqjknednxunsahxqedoeqsdcmmhltcqsnwakjxtetaalhgabekfmyimwrkffydghiunlroiwgkudzsqljjbsixguytfsatejmdwkfbzifdknpacqimvehxujszmbuyutsompijcjojspbywlroefiwmrsjstdjhgwxhnthsoosmoqtmufoxvpvpjpkgiaqgfrhufxxdnjiwtfqusbkeakunqjgdkndpwiblklgjounivhgxsnekxjgrrbnslpuaouvhzabilbimrmqqxtktgcnkdljoashnekxwtsgvzwjaehgurnksokjtrovpmygkzgeolwysfiodemflmkwmj'
+print(p.translate(trans))
+
+
+

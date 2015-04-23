@@ -1,0 +1,20 @@
+import urllib2
+
+page = urllib2.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345')
+text = page.read().decode('utf-8')
+
+ind = text.find('is ')
+texto = text[ind+3:len(text)]
+print(text[ind+3:len(text)])
+
+for i in range(0, 400):
+	if int(texto) == 16044:
+		texto = 16044 / 2
+	if int(texto) == 82682:
+		text = 63579
+
+	page = urllib2.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=%s' %texto)
+	text = page.read().decode('utf-8')
+	ind = text.find('is ')
+	texto = text[ind+3:len(text)]
+	print(text)
